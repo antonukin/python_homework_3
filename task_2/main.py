@@ -19,7 +19,7 @@ if k in n_list:
     print(f'Число {k} находится в массиве по индексу {n_list.index(k)}')
 else:
     closest_value = n_list[0]
-    for i in range(len(n_list)):
+    for i in range(len(n_list) - 1):
         if n_list[i] // k < 1:
             if abs(n_list[i] - k) < abs(n_list[i + 1] - k):
                 closest_value = n_list[i]
