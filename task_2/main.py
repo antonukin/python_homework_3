@@ -12,14 +12,18 @@
 '''
 
 n = int(input('Введите максимальный элемент последовательности чисел от 1: '))
-n_list = list(range (10, n, 10))
+n_list = list(range(1, n + 1, 3))
 print(n_list)
-k = int(input('Введите число которое требуется ввести в массиве: '))
+k = int(input('Введите число которое требуется найти в массиве: '))
 if k in n_list:
     print(f'Число {k} находится в массиве по индексу {n_list.index(k)}')
 else:
     closest_value = n_list[0]
-    for num in n_list:
-        if abs(num - k) < abs(num - closest_value):
-            closest_value = num
+    for i in range(len(n_list)):
+        if n_list[i] // k < 1:
+            if abs(n_list[i] - k) < abs(n_list[i + 1] - k):
+                closest_value = n_list[i]
+            else:
+                closest_value = n_list[i + 1]
     print(closest_value)
+
